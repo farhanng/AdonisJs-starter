@@ -16,3 +16,11 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.group(()=> {
+    Route.resource('/sampleroutes','SampleController');
+}).prefix('v1/samplegrouproutes');
+
+Route.group(()=> {
+    Route.resource('/anothersampleroutes','AnotherSampleController');
+}).prefix('v1/anothersamplegrouproutes');

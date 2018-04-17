@@ -61,6 +61,10 @@ Database migrated successfully in 117 ms
 
 13. Cara menjalankan aplikasi di server/production = adonis serve
 
+14. Untuk Controller, Middleware, Model, Service ada di dalam folder app
+
+15. Untuk Routes ada di dalam folder start
+
 ## Running the tests
 
 Untuk automated test masih belum ditambahkan.
