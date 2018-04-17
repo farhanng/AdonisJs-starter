@@ -3,6 +3,7 @@
 Apa itu Adonis?
 Adonis adalah salah satu framework nodeJS, yang sudah banyak orang memakainya. Jadi ini framework sudah banyak yang pakai, so pasti dokumentasi dan cara-cara fixing bug nya sudah banyak bertebaran di [stackoverflow](https://stackoverflow.com/).
 Terima kasih stackoverflow :D
+Detail tentang [AdonisJS](https://adonisjs.com/docs/4.1/installation)
 
 ## Getting Started
 
@@ -30,7 +31,7 @@ Syarat nya apa ya?
 
 ### Installing
 
-Point 1 ~ 6 bisa teman-teman skip, jika menggunakan starter ini
+Point 4 ~ 6 bisa teman-teman skip, jika menggunakan starter ini
 
 1. Install NodeJs & NPM
 2. Install Adonis CLI = npm i -g @adonisjs/cli
@@ -56,7 +57,9 @@ Database migrated successfully in 117 ms
 
 11. Migration status = adonis migration:status
 
-12. Cara menjalankan aplikasi = adonis serve --dev
+12. Cara menjalankan aplikasi di localhost = adonis serve --dev
+
+13. Cara menjalankan aplikasi di server/production = adonis serve
 
 ## Running the tests
 
@@ -96,7 +99,7 @@ Untuk versioning menggunakan semantic versioning
 ## Authors
 
 * **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-* Di modifikasi oleh rezamaskadi [rezamaskadi@gits.co.id](rezamaskadi@gits.co.id) @ [GITS INDONESIA](http://gits.co.id)
+* Di modifikasi oleh **Reza Maskadi** [rezamaskadi@gits.co.id](rezamaskadi@gits.co.id) @ [GITS INDONESIA](http://gits.co.id)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
