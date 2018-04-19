@@ -24,3 +24,14 @@ Route.group(()=> {
 Route.group(()=> {
     Route.resource('/anothersampleroutes','AnotherSampleController');
 }).prefix('v1/anothersamplegrouproutes');
+
+Route.group(()=> {
+    Route.post('/register','UserController.register');
+    Route.post('/login','UserController.login');
+}).prefix('api/v1');
+
+
+Route.group(()=> {
+    Route.get('/secretpage','HomeController.secretPage');
+    Route.get('/user','UserController.getList');
+}).prefix('api/v1').middleware('token');

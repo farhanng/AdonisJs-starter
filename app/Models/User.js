@@ -28,6 +28,14 @@ class User extends Model {
    *
    * @return {Object}
    */
+
+  static async comparePassword(password, hashPassword) {
+    if(await Hash.verify(password,hashPassword)) {
+      return true;
+    }
+    return false;
+  } 
+
   tokens () {
     return this.hasMany('App/Models/Token')
   }
