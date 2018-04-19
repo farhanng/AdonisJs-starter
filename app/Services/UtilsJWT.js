@@ -4,12 +4,19 @@ const jwt = require('jsonwebtoken')
 
 class UtilsJWT {
 
-  decodeJWT(token){
-    try {
-      return jwt.verify(token, Env.get('JWT_SECRET'));
-    } catch (error) {
-      return null
-    }
+  static async encodeJWT(data) {
+    return await jwt.sign(data, Env.get('JWT_SECRET','supersecret'));
   }
+
+  static decodeJWT(token){
+    return new Promise((resolve,reject) => {
+      try {
+        return resolve(jwt.verify(token, Env.get('JWT_SECRET','supersecret')));
+      } catch (error) {
+        return reject(error);
+      }
+    })  
+  }
+  
 }
 module.exports = UtilsJWT

@@ -1,6 +1,6 @@
-/* this is sample auth */
-
 'use strict'
+
+const userService = use('App/Services/UserServices');
 
 const UtilsJWT = use('App/Services/UtilsJWT')
 
@@ -15,18 +15,29 @@ class AuthToken {
     if (usertoken) {
       token = usertoken;
     }
-    
-    var jwt = new UtilsJWT();
-    var decodeToken = jwt.decodeJWT(token);
-    if (decodeToken) {
-      request.decodeToken = decodeToken;
-      await next()
-    }else{
 
-      response.status(500).send({
-        code : 500,
-        message: "failed token"
-      })
+    if(!token) return response.sendError(null,'Missing Token !');
+
+    try {
+      var decodeToken = await UtilsJWT.decodeJWT(token);
+    } catch(err) {
+      return response.sendError(null,'Invalid Token !');
+    }
+
+    if (decodeToken) {
+      if(!decodeToken.username || !decodeToken.password) return response.sendError(null,'Invalid Token !');
+
+      let user = await userService.getFirst('username',decodeToken.username);      
+
+      if(!user) return response.sendError(null,'Invalid Token !');
+      if(decodeToken.password != user.password) return response.sendError(null,'Invalid Token !');
+
+      request.user = decodeToken;
+      delete request.user.password;
+      await next()
+
+    } else {
+      return response.sendError(null,'Invalid Token !');
     }
   }
 }
